@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вызов функции через интервал времени</title>
+    <style>
+        .div_out{
+            font-size: 45px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+   <div id='d1' class='div_out'></div>
+    <script>
+        
+        
+        function ouy_info(){
+        document.getElementById('d1').append("Вызов функции");
+        }
+        function ouy_info2(){
+        document.getElementById('d1').append("2:Вызов функции");
+        }
+let my_time = setTimeout(ouy_info,2000);
+let my_time2 = setInterval(ouy_info2,2000);
+setTimeout(()=>clearTimeout(my_time2),10000);
+ let my_time3 = setTimeout(function many_times(){
+      document.getElementById('d1').append("3:Вызов функции");
+     my_time=setTimeout( many_times,3000);
+ },2000)       ;
+    </script>
+</body>
+</html>
